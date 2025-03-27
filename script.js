@@ -25,7 +25,7 @@ const calculateSquares = (squaresNumber) => {
 const createSketchPad = (squaresNumber = 16) => {
     const {totalSquare, squareSize} = calculateSquares(squaresNumber);
     removeSketchPad();
-    
+
     for (let i = 0; i < totalSquare; i++) {
         const squareDiv = document.createElement("div");
         squareDiv.setAttribute("class", "square-div");
@@ -50,7 +50,7 @@ main.addEventListener("mouseover", (element) => {
 const button = document.querySelector("#btn-sketch-pad");
 
 button.addEventListener("click", () => {
-    const squareNumber = parseInt(prompt("Enter the number of square per side (MAX = 100):"));
+    const squareNumber = parseInt(prompt("Enter the number of square per side (MAX 100):"));
     isNaN(squareNumber) ? createSketchPad() : createSketchPad(squareNumber);
 })
 
