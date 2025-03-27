@@ -7,13 +7,28 @@
     list-style: none;
 }
 
-body {
-    height: 100vh;
-    width: 100%;
+.flex {
     display: flex;
 }
 
+body {
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
 #main {
-    flex: 1;
-    display: flex;
+    width: 640px;
+    flex-wrap: wrap;
+}
+
+.square-div {
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+}
+
+.mouseover-div {
+    background-color: rgb(63, 63, 63);
 }
