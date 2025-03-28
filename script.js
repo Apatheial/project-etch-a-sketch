@@ -25,6 +25,7 @@ const calculateSquares = (squaresNumber) => {
 const createSketchPad = (squaresNumber = 16) => {
     const {totalSquare, squareSize} = calculateSquares(squaresNumber);
     removeSketchPad();
+    opacityController.resetOpacity();
 
     for (let i = 0; i < totalSquare; i++) {
         const squareDiv = document.createElement("div");
@@ -41,9 +42,32 @@ const removeSketchPad = () => {
     }
 }
 
+const randomSquareColor = () => {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r},${g},${b})`
+}
+
+const opacityController = {
+    opacity: 0,
+
+    decreaseOpacity() {
+        const currentOpacity = this.opacity;
+        this.opacity += 0.1
+        if (this.opacity > 1) this.opacity = 1;
+        return currentOpacity;
+    },
+
+    resetOpacity() {
+        this.opacity = 0;
+    }
+}
+
 main.addEventListener("mouseover", (element) => {
     if (element.target.classList.contains("square-div")) {
-        element.target.classList.add("mouseover-div");
+        element.target.style.backgroundColor = randomSquareColor();
+        element.target.style.opacity = opacityController.decreaseOpacity();
     }
 })
 
